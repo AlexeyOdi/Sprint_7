@@ -1,0 +1,5 @@
+login_message_without_field = '"message":"Недостаточно данных для входа"'
+login_message_unsuccess = '"message":"Учетная запись не найдена"'
+repetitive_login_message = '"message":"Этот логин уже используется'
+success_create_courier = '{"ok":true}'
+unsuccessful_create_courier = '"message":"Недостаточно данных для создания учетной записи"'
