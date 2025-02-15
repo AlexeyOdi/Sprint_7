@@ -13,7 +13,7 @@ class TestLoginCourier:
         response = requests.post(test_urls.main_url+test_urls.login_courier_url, data=courier_data)
 
         assert response.status_code == 200 and "id" in response.text
-        helpers.delete_courier(response.text)
+        requests.delete(test_urls.main_url+test_urls.create_courier_url+'/'+response.text[6:11])
 
     @allure.title('Проверяем вход в аккаунт курьера с несуществующим логином')
     def test_login_courier_with_wrong_login(self):
@@ -23,7 +23,7 @@ class TestLoginCourier:
         response = requests.post(test_urls.main_url+test_urls.login_courier_url, data=courier_data)
 
         assert response.status_code == 404 and test_data.login_message_unsuccess in response.text
-        helpers.delete_courier(response.text)
+        requests.delete(test_urls.main_url+test_urls.create_courier_url+'/'+response.text[6:11])
 
     @allure.title('Проверяем вход в аккаунт курьера с несуществующим паролем')
     def test_login_courier_with_wrong_password(self):
@@ -33,7 +33,7 @@ class TestLoginCourier:
         response = requests.post(test_urls.main_url+test_urls.login_courier_url, data=courier_data)
 
         assert response.status_code == 404 and test_data.login_message_unsuccess in response.text
-        helpers.delete_courier(response.text)
+        requests.delete(test_urls.main_url+test_urls.create_courier_url+'/'+response.text[6:11])
 
     @allure.title('Проверяем вход в аккаунт курьера без логина')
     def test_login_courier_without_login(self):
@@ -43,7 +43,7 @@ class TestLoginCourier:
         response = requests.post(test_urls.main_url+test_urls.login_courier_url, data=courier_data)
 
         assert response.status_code == 400 and test_data.login_message_without_field in response.text
-        helpers.delete_courier(response.text)
+        requests.delete(test_urls.main_url+test_urls.create_courier_url+'/'+response.text[6:11])
 
     @allure.title('Проверяем, что при входе в аккаунт курьера в теле ответа приходит id')
     def test_id_in_response(self):
@@ -52,4 +52,4 @@ class TestLoginCourier:
         response = requests.post(test_urls.main_url+test_urls.login_courier_url, data=courier_data)
 
         assert 'id' in response.text
-        helpers.delete_courier(response.text)
+        requests.delete(test_urls.main_url+test_urls.create_courier_url+'/'+response.text[6:11])

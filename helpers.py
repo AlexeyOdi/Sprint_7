@@ -16,6 +16,3 @@ def generate_courier():
     courier_data['first_name'] = generate_random_string(10)
 
     return courier_data
-
-def delete_courier(login_data):
-    requests.delete(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/{login_data[6:11]}')
