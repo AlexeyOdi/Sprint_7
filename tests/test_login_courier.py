@@ -21,7 +21,7 @@ class TestLoginCourier:
         assert self.response.status_code == 404 and test_data.login_message_unsuccess in self.response.text
 
     @allure.title('Проверяем вход в аккаунт курьера без логина')
-    @pytest.mark.f_data('delete')
+    @pytest.mark.f_data('delete login')
     def test_login_courier_without_login(self, delete_courier):
         assert self.response.status_code == 400 and test_data.login_message_without_field in self.response.text
 

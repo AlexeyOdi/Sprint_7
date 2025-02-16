@@ -4,6 +4,7 @@ import test_urls
 import test_data
 import helpers
 
+
 class TestCreateCourier:
 
     @allure.title('Проверяем создание курьера с правильно заполненными обязательными полями')

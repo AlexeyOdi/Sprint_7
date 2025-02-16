@@ -13,7 +13,7 @@ def delete_courier(request):
     data_to_change = None if marker is None else marker.args[0]
     if data_to_change in courier_data:
         courier_data[data_to_change] = "text_to_change"
-    elif data_to_change == 'delete':
+    elif data_to_change == 'delete login':
         del courier_data['login']
     else:
         pass
