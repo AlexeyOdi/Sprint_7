@@ -25,9 +25,6 @@ def delete_courier(request):
 
     if response.status_code == 200:
         del_req = requests.delete(test_urls.main_url + test_urls.create_courier_url + '/' + response.text[6:12])
-        print("Delete request status is:"+del_req.text)
-    else:
-        print("Delete request status is: profile is not exist")
 
 
 
